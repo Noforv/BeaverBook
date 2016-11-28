@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>Here is more information about <%= beaverinfo.name %> </h2>
+	<div> Name: <%=beaverinfo.name%> </div>
+	<div> Gender: <%=beaverinfo.sex%> </div>
+	<div> First seen date: <%=beaverinfo.date%> </div>
+	<div> First seen location: <%=beaverinfo.location%> </div>
+	<div> Current Health: <%=beaverinfo.health%> </div>
+	<div> Pending outgoing relation requests= <%= beaverinfo.pendingout %></div>
+	<div> Pending incoming relation requests= <%= beaverinfo.pendingin %></div>
+    <form action="<%= "/beavers/delete/"+ beaverinfo._id %>" method="POST">
+        <button type="submit">Delete this beaver</button>
+    </form> 
+    <br>
+    <br>
+	<a class="button" href = "/beavers/<%= beaverinfo._id %>/log">I have seen this beaver!</a><br>
+	<a class="button" href = "/beavers/<%= beaverinfo._id %>/showlog" >Where has this beaver been?</a><br>
+<img src="/CuteBeaver1.jpg" class="img-responsive" alt="Cute Beaver">
+<form action="/" method="GET">
+  <button type="submit">Home</button>
+</form>
+<br>
+<form action="/beavers/<%= beaverinfo._id %>/relationshiprequest/<%= beaverinfo.sex %>" method="GET">
+  <button type="submit">Do a relationship request</button>
+</form>
+<br>
+<form action="/beavers/<%= beaverinfo._id %>/requests/in" method="GET">
+  <button type="submit">Look at incoming relationship requests</button>
+</form>
+<form action="/beavers/<%= beaverinfo._id %>/requests/out" method="GET">
+  <button type="submit">Look at outgoing relationship requests</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+	<h2>Exciting! A new Relationship!!</h2>
+		<form action="/relations/create" method="POST">
+		  <select type="text" name="male">
+		  	<% for(var i=0; i<beavers.length; i++) {if (beavers[i].sex == "male" && beavers[i].health != 0) { %>
+		  			<option value=<%= beavers[i].name%>> <%= beavers[i].name %> </option>
+		  	<% }} %>
+		  </select>
+		  <select type="text" name="female">
+		  	<% for(var i=0; i<beavers.length; i++) {if (beavers[i].sex == "female" && beavers[i].health !== 0) {%>
+		  		<option value=<%= beavers[i].name %>> <%= beavers[i].name %> </option>
+			<% }} %>
+		  </select>
+		  <select type="text" name="term">
+		  	<option value="Long term">Long term</option>
+		  	<option value="Short term">Short term</option>
+		  </select>
+		  <select type="text" name="status">
+		  	<option value="Happy">Happy</option>
+		  	<option value="Complicated">I'ts Complicated </option>
+		  	<option value="Friends with benefits">Friends With Benefits </option>
+		  	<option value="Open relationship">In an open relationship </option>
+<!-- 		  	<option value="over">It's over</option> -->
+		  </select>
+		  <button type="submit">Submit</button>
+		</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

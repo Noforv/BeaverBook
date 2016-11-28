@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>This is where the beaver has been chilling </h2>
+<ul class="beaverlog">
+  <% for(var i=0; i<logger.length; i++) {if(logger[i].beaverid == beaver_id){%>
+    
+    <li class="beaverlog">
+      <span><%= logger[i].location %></span>
+      <span> on </span>
+      <span><%= logger[i].date %></span>
+      <form action="/beavers/<%= beaver_id %>/log/<%= logger[i]._id %> " method="POST">
+  		<button type="submit">Delete Log</button>
+	  </form>
+    </li>
+  <% }} %>
+</ul>
+<form action="/" method="GET">
+  <button type="submit">Home</button>
+</form>
+
+<form action="/beavers/show/<%= beaver_id %>" method="GET">
+  <button type="submit">Back</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

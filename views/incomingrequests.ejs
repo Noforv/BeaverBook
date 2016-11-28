@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>These are the incoming relationship requests for <%= beaverinfo.name %></h2>
+<ul class="pendingin">
+<% for (var i = 0; i<beaverinfo.pendingin.length; i++){for (var j = 0; j<beavers.length;j++){if ((beaverinfo.pendingin[i]).toString() == (beavers[j]._id).toString()){ %>
+    <li>
+      <form action="/beavers/<%= beaverinfo._id %>/acceptrequest/<%= beavers[j]._id %>" method="POST">
+        <span><%= beavers[j].name %></span>
+        <input style="display:none" name="askername" value="<%= beavers[j].name %>"><br>
+        <button type="submit" name="givername" value="<%= beaverinfo.name %>">Accept relation request from <%= beavers[j].name %></button>
+      </form>
+    </li>
+  <% }}} %>
+</ul>
+<br>
+
+<form action="/beavers/show/<%= beaverinfo._id %>" method="GET">
+  <button type="submit">Back</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

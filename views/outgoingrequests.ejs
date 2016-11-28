@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>These are the outgoing relationship requests for <%= beaverinfo.name %></h2>
+<ul class="pendingin">
+  <% for (var i = 0; i<beaverinfo.pendingout.length; i++){for (var j = 0; j<beavers.length;j++){if ((beaverinfo.pendingout[i]).toString() == (beavers[j]._id).toString()){ %>
+    <li>
+      <span><%= beavers[j].name %></span><br>
+      <form action="/beavers/<%= beaverinfo._id %>/removerequest/<%= beavers[j]._id %>" method="POST">
+        <button type="submit">Remove relation request to <%= beavers[j].name %></button>
+      </form>
+    </li>
+  <% }}} %>
+</ul>
+<br>
+<form action="/beavers/show/<%= beaverinfo._id %>" method="GET">
+  <button type="submit">Back</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

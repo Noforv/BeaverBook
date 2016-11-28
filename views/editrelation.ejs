@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>Edit the relationship</h2>
+<form action="/relations/update/<%=relation._id%>" method="POST">
+  <label type="text" name="male" value=" <%= relation.male %>" ><%= relation.male %></label><br>
+  <label type="text" name="female" value=" <%= relation.female %>" ><%= relation.female %></label><br>
+  <label type="text" name="term" value=" <%= relation.term %>"> <%= relation.term %> </label><br>
+  <select type="text" name="status">
+		 <option value="happy">Happy</option>
+		 <option value="complicated">I'ts Complicated</option>
+		 <option value="friendswithbenefits">Friends With Benefits</option>
+		 <option value="open">In an open relationship</option>
+		 <option value="over">It's over</option>
+  </select>
+  <button type="submit" id="savechanges">Save Changes</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

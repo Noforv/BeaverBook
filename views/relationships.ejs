@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+<h2>These are the relationships of our beloved beavers</h2>
+<ul class="relations">
+  <% for(var i=0; i<relations.length; i++) {%>
+    <li class="relations">
+      <label>Beaver 1: </label><span><%= relations[i].askername %></span><br>
+      <label>Beaver 2: </label><span><%= relations[i].givername %></span><br>
+      <label>Term: </label><span><%= relations[i].term %></span><br>
+      <label>Status: </label><span><%= relations[i].status %></span><br>
+      <a class="button" href = <%= "/relations/edit/"+relations[i]._id %>> Change Status </a><br>
+        <form action="<%= "/relations/delete/"+ relations[i]._id %>" method="POST">
+            <button type="submit">Delete this relationship</button>
+        </form> 
+    </li><br><br>
+  <% } %>
+</ul>
+<form action="/relations/new" method="GET">
+  <button type="submit">Add a relationship</button>
+</form><br>
+<!--   <form action="/relations/emptydb" method="POST">
+    <button type="submit">Empty Relationship database</button>
+  </form> -->
+<form action="/" method="GET">
+  <button type="submit">Go Back</button>
+</form>
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

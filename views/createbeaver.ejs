@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+    <script type="text/javascript">
+      $( document ).ready(function() {
+        $("select").imagepicker()
+      });
+     </script>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+      <h2>Creating a new cute little furry Beaver</h2>
+       <div class="row">
+        <div class="col-lg-12">
+        <form action="/beavers/create" method="POST">
+          <div class="form-group">
+            <label class="form-control-label">Beaver name</label>
+            <input class="form-control" type="name" placeholder="Beaver name" name="name">
+          </div>
+          <div class="form-group">
+            <label>Beaver sex</label>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="sex" value="male" checked>
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <label class="form-check-label">
+                  <input type="radio" class="form-check-input" name="sex" value="female">
+                  Female
+                </label>
+              </div>
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">First seen date</label>
+            <input class="form-control" type="date" placeholder="Date" name="date">
+          </div>
+          <div class="form-group">
+            <label class="form-control-label">First seen location</label>
+            <input class="form-control" type="location" placeholder="Location" name="location">
+          </div>
+          <div class="form-group">
+            <label>What did the little moster look like?</label>
+            <select class="image-picker show-html" name="image">
+              <option data-img-src="/CuteBeaver1.jpg" data-img-class="first" data-img-alt="Beaver 1" value="1">  Cute beaver 1  </option>
+              <option data-img-src="/CuteBeaver2.jpg" data-img-alt="Beaver 2" value="2">  Cute beaver 2  </option>
+              <option data-img-src="/CuteBeaver3.jpg" data-img-alt="Beaver 3" value="3">  Cute beaver 3  </option>
+              <option data-img-src="/CuteBeaver4.jpg" data-img-alt="Beaver 4" value="4">  Cute beaver 4  </option>
+              <option data-img-src="/CuteBeaver5.jpg" data-img-alt="Beaver 5" value="5">  Cute beaver 5  </option>
+              <option data-img-src="/CuteBeaver6.jpg" data-img-alt="Beaver 6" value="6">  Cute beaver 6  </option>
+              <option data-img-src="/CuteBeaver7.jpg" data-img-alt="Beaver 7" value="7">  Cute beaver 7  </option>
+              <option data-img-src="/CuteBeaver8.jpg" data-img-class="last" data-img-alt="Beaver 8" value="8">  Cute beaver 8  </option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="container row">
+        <form action="/" method="GET">
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Cancel</button>
+          </div>
+         </form>
+      </div> 
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+    
+  </body>
+</html>
+ <!--  <div class="container"> 
+    <ul class="thumbnails image_picker_selector">
+      <li class="first">
+        <div class="thumbnail first selected">
+          <img class="image_picker_image first" src="/CuteBeaver1.jpg" alt="Beaver 1">
+        </div>
+      </li>
+      <li>
+        <div class="thumbnail">
+          <img class="image_picker_image" src="/CuteBeaver2.jpg" alt="Beaver 2">
+        </div>
+      </li>
+      <li>
+        <div class="thumbnail">
+          <img class="image_picker_image" src="/CuteBeaver3.jpg" alt="Beaver 3">
+        </div>
+      </li>
+      <li>
+        <div>
+          <img class="image_picker_image" src="/CuteBeaver4.jpg" alt="Beaver 4">
+        </div>
+      </li>
+      <li>
+        <div class="thumbnail">
+          <img class="image_picker_image" src="/CuteBeaver5.jpg" alt="Beaver 5">
+        </div>
+      </li>
+      <li>
+        <div class="thumbnail">
+          <img class="image_picker_image" src="/CuteBeaver6.jpg" alt="Beaver 6">
+        </div>
+      </li>
+      <li>
+        <div class="thumbnail">
+          <img class="image_picker_image" src="/CuteBeaver7.jpg" alt="Beaver 7">
+        </div>
+      </li>
+      <li class="last">
+        <div class="thumbnail last">
+          <img class="image_picker_image last" src="/CuteBeaver8.jpg" alt="Beaver 8">
+        </div>
+      </li>
+    </ul>
+  </div> -->

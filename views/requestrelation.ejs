@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+	<h2>Do a relationship request to:</h2>
+		<br>
+		  	<% for(var i=0; i<beavers.length; i++) {if (beavers[i].sex == gender && beavers[i].health != 0 && array.indexOf((beavers[i]._id).toString()) <=-1  ) { %>
+		  	<form action="/beavers/<%= beaverinfo._id %>/requestrelationto/<%= beavers[i]._id %>" method="POST">	
+		 	 	<span><%= beavers[i].name %></span>
+		 	 	<select type="text" name="term">
+		  			<option value="Long term">Long term</option>
+		  			<option value="Short term">Short term</option>
+		  		</select>
+				<button type="submit">Send Relationship request</button>
+			</form>
+		<br>
+		  	<% }} %>
+	<br>
+	<br>
+	<br>
+	<br>
+	<form action="/beavers/show/<%= beaverinfo._id %>" method="GET">	
+		<button type="submit">Go back</button>
+	</form>	  
+	<br>
+	<form action="/" method="GET">
+  		<button type="submit">Home</button>
+	</form>	
+</main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>

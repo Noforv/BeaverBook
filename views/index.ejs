@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <% include partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include partials/header %>
+    </header>
+    <main>
+      <h3>Welcome to PokerIntel, please select your profile or create a new one</h3>
+      <div class="row">
+        <div class="col-lg-8">
+            <% for(var i=0; i<beavers.length; i++) { %>
+              <div class="col-lg-4">
+                <div class="card"  style="height: 200px, width: 130px">
+                  <img class="card-img-top img-responsive" src="/CuteBeaver<%= beavers[i].image %>.jpg" alt="Cute beaver pic">
+                  <div class="card-block">
+                    <h4 class="card-title"><%= beavers[i].name %></h4>
+                    <p class="card-text">Gender: <%= beavers[i].sex %></p>
+                    <p class="card-text">First seen date: <%= beavers[i].date %></p>
+                    <p class="card-text">First seen location: <%= beavers[i].location %></p>
+                    <a class="btn btn-success" href = <%= "/beavers/show/"+beavers[i]._id %> >View details</a>
+                  </div>
+                </div>
+               </div> 
+            <% } %>
+          <form action="/beavers/new" method="GET">
+            <button class="btn btn-primary" type="submit">Add a Beaver</button>
+          </form> <br>
+        </div>
+       </div>
+    </main>
+    <footer>
+        <% include partials/footer %>
+    </footer>
+  </body>
+</html>
