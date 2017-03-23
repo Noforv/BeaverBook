@@ -24,6 +24,9 @@ app.listen(process.env.PORT || 3000, function() {
 	console.log('chilling on 3000');
 })
 
+// app.get('/', (req, res)=>{
+// 	res.render('index.ejs')
+// })
 
 const MongoClient = require('mongodb').MongoClient
 
